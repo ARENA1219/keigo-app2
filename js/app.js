@@ -123,10 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mainContent.innerHTML = `
             <div class="test-container">
-                <div style="font-size: 0.9rem; color: var(--primary-color); font-weight: bold; margin-bottom: 0.5rem;">${sectionTitle}</div>
+                <div style="font-size: 0.9rem; color: var(--primary-color, #60a5fa); font-weight: bold; margin-bottom: 0.5rem;">${sectionTitle}</div>
                 <div class="test-progress">問題 ${currentQuestionIndex + 1} / ${currentTestList.length}</div>
-                <div style="color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 600; opacity: 0.85;">【シーン: ${q.situation}】</div>
-                <div style="color: var(--secondary-color); font-size: 0.95rem; margin-bottom: 2rem; background: rgba(251,191,36,0.1); padding: 0.5rem 0.75rem; border-radius: 6px; display: inline-block;">💡ヒント：${q.hint}</div>
+                <div style="color: var(--text-primary, #f8fafc); margin-bottom: 0.5rem; font-weight: 600; opacity: 0.85;">【シーン: ${q.situation}】</div>
+                <div style="color: var(--secondary-color, #fbbf24); font-size: 0.95rem; margin-bottom: 2rem; background: rgba(251,191,36,0.1); padding: 0.5rem 0.75rem; border-radius: 6px; display: inline-block;">💡ヒント：${q.hint}</div>
                 
                 <div class="test-question" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
                     <span>${q.textPre}</span>
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = `
             <div class="test-container" style="max-width: 800px;">
                 <h2 style="font-size: 2rem; margin-bottom: 1rem;">テスト結果</h2>
-                <div class="result-score">${finalScore} <span style="font-size: 1.5rem; color: var(--text-secondary);">点</span></div>
+                <div class="result-score">${finalScore} <span style="font-size: 1.5rem; color: var(--text-secondary, #cbd5e1);">点</span></div>
                 <div class="result-comment ${commentClass}">${comment}</div>
                 <div style="color: var(--text-secondary); margin-bottom: 2rem;">
                     正解数: ${score} / ${currentTestList.length} 問
@@ -207,23 +207,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (incorrectResults.length > 0) {
             html += `
                 <div style="text-align: left; border-top: 1px solid var(--border-color); padding-top: 2rem;">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--error-color);">⚠️ 間違えた問題の復習</h3>
+                    <h3 style="margin-bottom: 1.5rem; color: var(--error-color, #f87171);">⚠️ 間違えた問題の復習</h3>
             `;
             
             incorrectResults.forEach(r => {
                 html += `
                     <div style="background-color: rgba(248,113,113,0.08); border-left: 4px solid var(--error-color); padding: 1.5rem; margin-bottom: 1rem; border-radius: 0 8px 8px 0;">
-                        <div style="font-weight: bold; margin-bottom: 0.5rem; color: var(--text-primary);">Q${r.index}. 【${r.question.situation}】</div>
-                        <div style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-primary);">
-                            ${r.question.textPre}<span style="text-decoration: underline; padding: 0 0.5rem; color: var(--error-color); font-weight: bold;">${r.userAnswer || '(未入力)'}</span>${r.question.textPost}
+                        <div style="font-weight: bold; margin-bottom: 0.5rem; color: var(--text-primary, #f8fafc);">Q${r.index}. 【${r.question.situation}】</div>
+                        <div style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-primary, #f8fafc);">
+                            ${r.question.textPre}<span style="text-decoration: underline; padding: 0 0.5rem; color: var(--error-color, #f87171); font-weight: bold;">${r.userAnswer || '(未入力)'}</span>${r.question.textPost}
                         </div>
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
-                            <div style="background-color: rgba(52, 211, 153, 0.15); color: var(--success-color); padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold; border: 1px solid rgba(52,211,153,0.3);">
+                            <div style="background-color: rgba(52, 211, 153, 0.15); color: var(--success-color, #34d399); padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold; border: 1px solid rgba(52,211,153,0.3);">
                                 正解: ${r.question.textPre}<span style="text-decoration: underline;">${r.question.a[0]}</span>${r.question.textPost}
                             </div>
                         </div>
-                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
-                            <strong style="color: var(--text-primary);">💡解説：</strong> ${r.question.explanation}
+                        <div style="color: var(--text-secondary, #cbd5e1); font-size: 0.95rem; line-height: 1.5;">
+                            <strong style="color: var(--text-primary, #f8fafc);">💡解説：</strong> ${r.question.explanation}
                         </div>
                     </div>
                 `;
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
              html += `
                 <div style="text-align: left; border-top: 1px solid var(--border-color); padding-top: 2rem; text-align: center;">
-                    <h3 style="color: var(--success-color);">全問正解です！おめでとうございます🎉</h3>
+                    <h3 style="color: var(--success-color, #34d399);">全問正解です！おめでとうございます🎉</h3>
                 </div>
             `;
         }
