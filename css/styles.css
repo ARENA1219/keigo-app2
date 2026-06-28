@@ -2,14 +2,15 @@
     --bg-color: #0f172a; /* Cool dark slate */
     --surface-color: #1e293b;
     --surface-hover: #334155;
-    --primary-color: #3b82f6; /* Modern blue */
-    --primary-hover: #2563eb;
-    --secondary-color: #f59e0b; /* Amber */
+    --primary-color: #60a5fa; /* Brighter blue for better readability on dark */
+    --primary-hover: #3b82f6;
+    --secondary-color: #fbbf24; /* Brighter amber */
     --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --border-color: #334155;
-    --success-color: #10b981;
-    --error-color: #ef4444;
+    --text-secondary: #cbd5e1; /* Brighter secondary text for readability */
+    --text-muted: #94a3b8;    /* Muted text for less important content */
+    --border-color: #475569;  /* Slightly brighter border */
+    --success-color: #34d399; /* Brighter green */
+    --error-color: #f87171;   /* Brighter red */
     --font-family: 'Noto Sans JP', 'Inter', sans-serif;
     --border-radius: 12px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -272,10 +273,11 @@ body {
 }
 
 .test-progress {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-weight: 600;
     margin-bottom: 2rem;
     font-size: 1.1rem;
+    opacity: 0.85;
 }
 
 .test-question {
@@ -286,7 +288,7 @@ body {
 
 .test-input {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #1a2744; /* Deep blue-dark for clear text contrast */
     border: 2px solid var(--border-color);
     color: var(--text-primary);
     padding: 1rem;

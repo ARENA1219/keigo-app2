@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="test-container">
                 <div style="font-size: 0.9rem; color: var(--primary-color); font-weight: bold; margin-bottom: 0.5rem;">${sectionTitle}</div>
                 <div class="test-progress">問題 ${currentQuestionIndex + 1} / ${currentTestList.length}</div>
-                <div style="color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;">【シーン: ${q.situation}】</div>
-                <div style="color: var(--primary-color); font-size: 0.95rem; margin-bottom: 2rem;">💡ヒント：${q.hint}</div>
+                <div style="color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 600; opacity: 0.85;">【シーン: ${q.situation}】</div>
+                <div style="color: var(--secondary-color); font-size: 0.95rem; margin-bottom: 2rem; background: rgba(251,191,36,0.1); padding: 0.5rem 0.75rem; border-radius: 6px; display: inline-block;">💡ヒント：${q.hint}</div>
                 
                 <div class="test-question" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
                     <span>${q.textPre}</span>
@@ -212,18 +212,18 @@ document.addEventListener('DOMContentLoaded', () => {
             
             incorrectResults.forEach(r => {
                 html += `
-                    <div style="background-color: rgba(255,255,255,0.05); border-left: 4px solid var(--error-color); padding: 1.5rem; margin-bottom: 1rem; border-radius: 0 8px 8px 0;">
-                        <div style="font-weight: bold; margin-bottom: 0.5rem;">Q${r.index}. 【${r.question.situation}】</div>
-                        <div style="margin-bottom: 1rem; font-size: 1.1rem;">
-                            ${r.question.textPre}<span style="text-decoration: underline; padding: 0 0.5rem; color: var(--error-color);">${r.userAnswer || '(未入力)'}</span>${r.question.textPost}
+                    <div style="background-color: rgba(248,113,113,0.08); border-left: 4px solid var(--error-color); padding: 1.5rem; margin-bottom: 1rem; border-radius: 0 8px 8px 0;">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem; color: var(--text-primary);">Q${r.index}. 【${r.question.situation}】</div>
+                        <div style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-primary);">
+                            ${r.question.textPre}<span style="text-decoration: underline; padding: 0 0.5rem; color: var(--error-color); font-weight: bold;">${r.userAnswer || '(未入力)'}</span>${r.question.textPost}
                         </div>
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
-                            <div style="background-color: rgba(16, 185, 129, 0.1); color: var(--success-color); padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold;">
+                            <div style="background-color: rgba(52, 211, 153, 0.15); color: var(--success-color); padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold; border: 1px solid rgba(52,211,153,0.3);">
                                 正解: ${r.question.textPre}<span style="text-decoration: underline;">${r.question.a[0]}</span>${r.question.textPost}
                             </div>
                         </div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;">
-                            <strong>💡解説：</strong> ${r.question.explanation}
+                            <strong style="color: var(--text-primary);">💡解説：</strong> ${r.question.explanation}
                         </div>
                     </div>
                 `;
